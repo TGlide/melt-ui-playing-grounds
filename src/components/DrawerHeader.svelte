@@ -1,9 +1,11 @@
 <script lang="ts">
-	import type { CreateDialogReturn } from '@melt-ui/svelte';
+	import type { Dialog } from '@melt-ui/svelte';
 
-	export let drawer: CreateDialogReturn;
+	export let drawer: Dialog;
 
-	const { title, close } = drawer;
+	const {
+		elements: { title, close }
+	} = drawer;
 </script>
 
 <div class="px-4 py-4 lg:py-3 lg:px-3 border-l-5">

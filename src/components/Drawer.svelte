@@ -1,16 +1,19 @@
 <script lang="ts">
-	import type { CreateDialogReturn } from '@melt-ui/svelte';
+	import type { Dialog } from '@melt-ui/svelte';
 	import { fade, fly } from 'svelte/transition';
 
 	// import DrawerContent from './DrawerContent.svelte';
 	import DrawerHeader from './DrawerHeader.svelte';
 
-	export let drawer: CreateDialogReturn;
+	export let drawer: Dialog;
 
-	const { portal, overlay, content, open } = drawer;
+	const {
+		elements: { portalled, overlay, content },
+		states: { open }
+	} = drawer;
 </script>
 
-<div use:portal>
+<div {...$portalled} use:portalled>
 	{#if $open}
 		<div
 			{...$overlay}
